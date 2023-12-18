@@ -1,10 +1,10 @@
 from fastapi import APIRouter, Depends
 from pydantic import BaseModel
 
-from controller.auth import get_current_user
-from logic.result import qa_bert
-from models.chatting import Chatting
-from utils.db import get_db
+from server.controller.auth import get_current_user
+from server.logic.result import qa_bert
+from server.models.chatting import Chatting
+from server.utils.db import get_db
 
 router = APIRouter(prefix="/chat")
 

@@ -1,7 +1,7 @@
 from pydantic import EmailStr
 
-from models.user import User
-from utils.crypt import crypt_context
+from server.models.user import User
+from server.utils.crypt import crypt_context
 
 
 async def verify_password(plain_password, hashed_password):

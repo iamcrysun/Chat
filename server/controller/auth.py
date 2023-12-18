@@ -7,11 +7,11 @@ from starlette.requests import Request
 from starlette.responses import JSONResponse
 from starlette.templating import Jinja2Templates
 
-from models.user import User
-from schemas.auth import SignInSchema, SignUpSchema
-from utils.auth import authenticate_user
-from utils.crypt import get_password_hash
-from utils.db import get_db, sessions
+from server.models.user import User
+from server.schemas.auth import SignInSchema, SignUpSchema
+from server.utils.auth import authenticate_user
+from server.utils.crypt import get_password_hash
+from server.utils.db import get_db, sessions
 
 templates = Jinja2Templates(directory="view")
 

@@ -1,6 +1,6 @@
 from sqlalchemy import Column, String
 
-from models.entity import Entity
+from server.models.entity import Entity
 
 
 class User(Entity):
