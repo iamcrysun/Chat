@@ -21,7 +21,7 @@
         }
 
         #menu {
-            width: 30%;
+            width: 15%;
             background-color: #333;
             color: #fff;
             padding: 20px;
@@ -67,6 +67,18 @@
             cursor: pointer;
             font-size: 16px;
         }
+
+        #logout-container {
+            position: fixed;
+            bottom: 20px;
+            left: 100px;
+            transform: translateX(-50%);
+            text-align: center;
+            background-color: #b30000;
+            color: #fff;
+            border-radius: 4px;
+            cursor: pointer;
+        }
     </style>
 </head>
 <body>
@@ -78,7 +90,12 @@
                 <li>Chat 2</li>
                 <li>Chat 3</li>
             </ul>
+            <div id="logout-container">
+                <button onclick="logout()">Выход</button>
+             </div>
+
         </div>
+
         <div id="chat">
             <div id="chat-messages">
                 <!-- Chat messages will appear here -->
@@ -119,6 +136,10 @@
             messageElement.textContent = message;
             chatMessages.appendChild(messageElement);
             chatMessages.scrollTop = chatMessages.scrollHeight;
+        }
+
+        function logout() {
+            window.location.href = 'http://localhost:16000/auth/sign-in/form';
         }
     </script>
 </body>

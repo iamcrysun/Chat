@@ -2,6 +2,7 @@ from fastapi import APIRouter, Depends
 from pydantic import BaseModel
 
 from controller.auth import get_current_user
+from logic.result import qa_bert
 from models.chatting import Chatting
 from utils.db import get_db
 
@@ -25,6 +26,7 @@ def answer(question: Question,
            current_user = Depends(get_current_user),
            db = Depends(get_db)) -> Answer:
     message = question.message
+    bert_answer=qa_bert(message)
     chatting = Chatting(
         user_id=current_user.id,
         question=message,
@@ -33,4 +35,4 @@ def answer(question: Question,
     db.add(chatting)
     db.commit()
     # do smt with message
-    return Answer(message=message)
+    return Answer(message=bert_answer)
