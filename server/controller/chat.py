@@ -11,10 +11,12 @@ from server.models.chatting import Chatting
 from server.schemas.chatting import ChattingDBSchema
 from server.utils import db
 from server.utils.db import get_db
+from settings import TEMPLATES_PATH
 
 router = APIRouter(prefix="/chat")
 
-templates = Jinja2Templates(directory="D:/Chat/web/view")
+templates = Jinja2Templates(directory=TEMPLATES_PATH)
+
 
 class Answer(BaseModel):
     message: str
@@ -24,9 +26,15 @@ class Question(BaseModel):
     message: str
 
 
+@router.get('/main')
+async def chat_form(request: Request):
+    return templates.TemplateResponse('main.html', {"request": request})
+
+
 @router.get('/chat/form')
 async def chat_form(request: Request):
     return templates.TemplateResponse('chat.html', {"request": request})
+
 
 @router.get('/')
 def items(db=Depends(get_db)):

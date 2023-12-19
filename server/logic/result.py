@@ -76,9 +76,10 @@ def bert(question, context_array, link_array, link_idx):
     #print(f"Ответ на вопрос: {result['answer']}")
     response = f"Отрывок из инструкции: {context} \n Ссылка на статью: {link} \n Ответ на вопрос: {result['answer']}\n"
     print(response)
+    return response
 
 def qa_bert(question):
-    folder = 'output'
+    folder = 'D:\Chat\server\logic\output'
     context_array = []
     link_array = ['https://cfl.digtp.com/display/IT175/Access+to+systems',
                   'https://cfl.digtp.com/pages/viewpage.action?pageId=84297694',
@@ -98,4 +99,5 @@ def qa_bert(question):
         link_idx.append(idx)
 
     # Example usage
-    bert(question, context_array, link_array, link_idx)
+    return bert(question, context_array, link_array, link_idx)
+

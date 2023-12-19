@@ -4,33 +4,35 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Chat Interface</title>
-    <link rel="stylesheet" href="..\static\styles\chat.css">
-    <script src="..\static\scripts\chat.js"></script>
+    <link rel="stylesheet" href="{{url_for('static', path='styles/chat.css')}}">
+
+
 </head>
 <body>
-    <div id="container">
-        <div id="menu">
-            <h2>Chats</h2>
-            <ul>
-                <li>Chat 1</li>
-                <li>Chat 2</li>
-                <li>Chat 3</li>
-            </ul>
-            <div id="logout-container">
-                <button onclick="logout()">Выход</button>
-             </div>
-
+<div id="container">
+    <div id="menu">
+        <h2>Chats</h2>
+        <ul>
+            <li>Chat 1</li>
+            <li>Chat 2</li>
+            <li>Chat 3</li>
+        </ul>
+        <div id="logout-container">
+            <button onclick="logout()">Выход</button>
         </div>
 
-        <div id="chat">
-            <div id="chat-messages">
-            </div>
-            <form id="chat-input" onsubmit="sendMessage(); return false">
-                <input type="text" id="user-input" placeholder="Type a message...">
-                <input type="submit" value="Send" />
-            </form>
-        </div>
     </div>
 
+    <div id="chat">
+        <div id="chat-messages">
+        </div>
+        <form id="chat-input" onsubmit="sendMessage(); return false">
+            <input type="text" id="user-input" placeholder="Type a message...">
+            <input type="submit" value="Send"/>
+        </form>
+    </div>
+</div>
+
+<script src="{{ url_for('static', path='scripts/chat.js') }}"></script>
 </body>
 </html>

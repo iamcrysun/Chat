@@ -5,12 +5,13 @@ from starlette.staticfiles import StaticFiles
 from server.controller.chat import router as chat_router
 from server.controller.auth import router as auth_router
 from server.utils.db import Base, engine
+from settings import STATIC_PATH
 
 Base.metadata.create_all(bind=engine)
 
 app = FastAPI()
 
-app.mount("/static", StaticFiles(directory="D:\\Chat\\web\\static"), name="static")
+app.mount("/static", StaticFiles(directory=STATIC_PATH), name="static")
 
 app.add_middleware(
     CORSMiddleware,

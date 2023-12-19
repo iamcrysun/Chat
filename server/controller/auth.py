@@ -12,8 +12,9 @@ from server.schemas.auth import SignInSchema, SignUpSchema
 from server.utils.auth import authenticate_user
 from server.utils.crypt import get_password_hash
 from server.utils.db import get_db, sessions
+from settings import TEMPLATES_PATH
 
-templates = Jinja2Templates(directory="D:/Chat/web/view")
+templates = Jinja2Templates(directory=TEMPLATES_PATH)
 
 router = APIRouter(prefix='/auth')
 
@@ -76,7 +77,7 @@ async def sign_in(login_data: SignInSchema,
 
     response = JSONResponse({"detail": "Logged in successfully"})
     response.set_cookie("session", session_id, max_age=3600)
-    print(sessions)
+
     return response
 
 
