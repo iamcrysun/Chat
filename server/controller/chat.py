@@ -2,6 +2,8 @@ from typing import List, Type
 
 from fastapi import APIRouter, Depends
 from pydantic import BaseModel
+from starlette.templating import Jinja2Templates
+from starlette.requests import Request
 
 from server.controller.auth import get_current_user
 from server.logic.result import qa_bert
@@ -12,6 +14,7 @@ from server.utils.db import get_db
 
 router = APIRouter(prefix="/chat")
 
+templates = Jinja2Templates(directory="D:/Chat/web/view")
 
 class Answer(BaseModel):
     message: str
@@ -20,6 +23,10 @@ class Answer(BaseModel):
 class Question(BaseModel):
     message: str
 
+
+@router.get('/chat/form')
+async def chat_form(request: Request):
+    return templates.TemplateResponse('chat.html', {"request": request})
 
 @router.get('/')
 def items(db=Depends(get_db)):

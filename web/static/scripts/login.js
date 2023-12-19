@@ -3,7 +3,7 @@ async function login() {
             const password = document.getElementById("password").value;
 
             try {
-                const response = await fetch('http://localhost:16000/sign-in/', {
+                const response = await fetch('http://localhost:16000/auth/sign-in/', {
                     method: 'POST',
                     headers: {
                         'Content-Type': 'application/json',
@@ -16,7 +16,8 @@ async function login() {
 
                 if (response.ok) {
                     // Если успешно, переход на следующую страницу
-                    window.location.href = 'chat.html';
+                    document.location.href = 'http://localhost:16000/chat/chat/form';
+                    console.log("Вход")
                 } else {
                     // Обработка ошибок
                     console.error(`Error: ${response.status}`);

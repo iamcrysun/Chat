@@ -16,7 +16,8 @@
 
                 if (response.ok) {
                     // Если успешно, переходите на следующую страницу
-                    window.location.href = 'chat.html';
+                    document.location.href = 'http://localhost:16000/chat/chat/form';
+                    console.log("Вход")
                 } else {
                     // Обработка ошибок
                     console.error(`Error: ${response.status}`);
