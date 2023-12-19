@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Регистрация</title>
     <link rel="stylesheet" href="../static/styles/reg.css">
+    <script src="..\static\scripts\reg.js"></script>
 </head>
 <body>
     <div class="container">
@@ -17,8 +18,9 @@
             <label for="password">Введите пароль:</label>
             <input type="password" id="password" name="password" required>
         </div>
-        <button class="button">Зарегистрироваться</button>
-        <p><span class="login-link" onclick="window.location.href='http:://127.0.0.1/auth/sign-in/form'">Уже есть аккаунт? Войдите</span></p>
+        <button class="button" onclick="register()">Зарегистрироваться</button>
+        <p><span class="login-link" onclick="window.location.href='auth.html'">Уже есть аккаунт? Войдите</span></p>
     </div>
 </body>
 </html>
+
