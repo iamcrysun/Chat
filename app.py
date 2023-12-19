@@ -10,7 +10,7 @@ Base.metadata.create_all(bind=engine)
 
 app = FastAPI()
 
-app.mount("/static", StaticFiles(directory="D:\Chat\web\static"), name="static")
+app.mount("/static", StaticFiles(directory="D:\\Chat\\web\\static"), name="static")
 
 app.add_middleware(
     CORSMiddleware,
