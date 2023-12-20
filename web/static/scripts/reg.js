@@ -21,9 +21,11 @@
                 } else {
                     // Обработка ошибок
                     console.error(`Error: ${response.status}`);
+                    window.alert("Проверьте данные");
                 }
             } catch (error) {
                 // В случае ошибки вы можете обработать ее здесь
                 console.error(error);
+                window.alert("Проверьте данные");
             }
         }

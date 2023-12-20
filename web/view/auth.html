@@ -19,7 +19,7 @@
         <input type="password" id="password" name="password" required>
     </div>
     <button class="button" onclick="login()">Войти</button>
-    <p><span class="login-link" onclick="">Нет аккаунта? Зарегистрируйтесь</span></p>
+    <p><span class="login-link" onclick="window.location.href='/auth/sign-up/form'">Нет аккаунта? Зарегистрируйтесь</span></p>
 </div>
 
 <script src="{{url_for('static', path='scripts/login.js')}}"></script>
