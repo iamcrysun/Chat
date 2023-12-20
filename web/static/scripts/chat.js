@@ -2,7 +2,7 @@ function sendMessage() {
             const userInput = document.getElementById("user-input");
             const message = userInput.value;
             if (message.trim() !== "") {
-                appendMessage("You: " + message);
+                appendMessage("<strong>You: </strong>" + message);
                 userInput.value = "";
                 // Send the message to the server
 
@@ -14,7 +14,8 @@ function sendMessage() {
                     body: JSON.stringify({ message })
                 }).then(response => response.json())
                 .then(data => {
-                    appendMessage("Bot: " + data.message);
+                    appendMessage("<strong>Bot: </strong>" + data.message);
+                    appendMessage("<br>");
                 });
 
             }
@@ -23,7 +24,7 @@ function sendMessage() {
         function appendMessage(message) {
             const chatMessages = document.getElementById("chat-messages");
             const messageElement = document.createElement("div");
-            messageElement.textContent = message;
+            messageElement.innerHTML = message;
             chatMessages.appendChild(messageElement);
             chatMessages.scrollTop = chatMessages.scrollHeight;
         }
@@ -31,3 +32,28 @@ function sendMessage() {
         function logout() {
             window.location.href = 'http://localhost:16000/auth/sign-in/form';
         }
+
+function loadChatData() {
+    fetch('http://localhost:16000/chat/all/', {
+        method: 'GET',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+    })
+    .then(response => response.json())
+    .then(data => {
+        data.forEach(chat => processChat(chat));
+    })
+    .catch(error => console.error('Error loading chat data:', error));
+}
+
+function processChat(chat) {
+    // Здесь chat - это один элемент из списка
+    const question = chat.question;
+    const answer = chat.answer;
+
+
+    appendMessage("<strong>You: </strong>" + question);
+    appendMessage("<strong>Bot: </strong>" + answer );
+    appendMessage("<br>");
+}

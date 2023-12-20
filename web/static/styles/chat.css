@@ -1,74 +1,84 @@
 body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-            background-color: #f4f4f4;
-            display: flex;
-            flex-direction: column;
-            height: 100vh;
-        }
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+}
 
-        #container {
-            display: flex;
-            flex: 1;
-        }
+#container {
+    display: flex;
+    flex: 1;
+}
 
-        #menu {
-            width: 15%;
-            background-color: #333;
-            color: #fff;
-            padding: 20px;
-            box-sizing: border-box;
-            height: 100%;
-        }
+#menu {
+    width: 15%;
+    background-color: #333;
+    color: #fff;
+    padding: 20px;
+    box-sizing: border-box;
+    height: 100%;
+    position: fixed;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    top: 0;
+    bottom: 0;
+}
 
-        #chat {
-            flex: 1;
-            display: flex;
-            flex-direction: column;
-            overflow-y: auto;
-        }
+#chat {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    overflow-y: auto;
+    margin-left: 15%;
+    padding: 20px;
+    box-sizing: border-box;
+}
 
-        #chat-messages {
-            padding: 20px;
-            box-sizing: border-box;
-            flex: 1;
-        }
+#chat-messages {
+    flex: 1;
+}
 
-        #chat-input {
-            display: flex;
-            align-items: flex-end;
-            padding: 20px;
-            box-sizing: border-box;
-        }
+#chat-input {
+    position: fixed;
+    display: flex;
+    align-items: flex-end;
+    padding: 20px;
+    box-sizing: border-box;
+}
 
-        input[type="text"] {
-            flex: 1;
-            padding: 10px;
-            border: 1px solid #ddd;
-            border-radius: 4px;
-            font-size: 16px;
-        }
+input[type="text"] {
+    position: fixed;
+    flex: 1;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 16px;
+}
 
-        input[type="submit"] {
-            margin-left: 10px;
-            padding: 10px;
-            border: none;
-            background-color: #4caf50;
-            color: #fff;
-            border-radius: 4px;
-            cursor: pointer;
-            font-size: 16px;
-        }
+input[type="submit"] {
+    position: fixed;
+    margin-left: 10px;
+    padding: 10px;
+    border: none;
+    background-color: #4caf50;
+    color: #fff;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+}
 
-        #logout-container {
-            position: fixed;
-            bottom: 20px;
-            left: 100px;
-            transform: translateX(-50%);
-            text-align: center;
-            background-color: #b30000;
-            color: #fff;
-            border-radius: 4px;
-            cursor: pointer;
-        }
+#logout-container {
+    position: fixed;
+    bottom: 20px;
+    left: 100px;
+    transform: translateX(-50%);
+    text-align: center;
+    background-color: #b30000;
+    color: #fff;
+    border-radius: 4px;
+    cursor: pointer;
+}

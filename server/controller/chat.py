@@ -42,11 +42,11 @@ def items(db=Depends(get_db)):
 
 
 @router.get('/all/', response_model=List[ChattingDBSchema])
-async def chatting_by_user(current_user=Depends(get_current_user)) -> Type[Chatting]:
+async def chatting_by_user(current_user=Depends(get_current_user), db=Depends(get_db)) -> Type[Chatting]:
     """
     Chatting by user
     """
-    return db.query(Chatting).filter(current_user.id == Chatting.person_id).all()
+    return db.query(Chatting).filter(current_user.id == Chatting.user_id).all()
 
 
 @router.post('/', response_model=Answer)
