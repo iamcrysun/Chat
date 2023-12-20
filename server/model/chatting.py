@@ -1,7 +1,7 @@
 from sqlalchemy import Column, String, ForeignKey, Integer
 from sqlalchemy.orm import relationship
 
-from server.models.entity import Entity
+from server.model.entity import Entity
 
 
 class Chatting(Entity):

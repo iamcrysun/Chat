@@ -1,6 +1,6 @@
 from pydantic import BaseModel
 
-from server.schemas.entity import EntityDBSchema
+from server.controller.schemas.entity import EntityDBSchema
 
 
 class ChattingDBSchema(EntityDBSchema):

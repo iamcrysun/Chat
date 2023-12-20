@@ -5,12 +5,11 @@ from pydantic import BaseModel
 from starlette.templating import Jinja2Templates
 from starlette.requests import Request
 
-from server.controller.auth import get_current_user
-from server.logic.result import qa_bert
-from server.models.chatting import Chatting
-from server.schemas.chatting import ChattingDBSchema
-from server.utils import db
-from server.utils.db import get_db
+from server.controller.routes.auth import get_current_user
+from server.controller.logic.result import qa_bert
+from server.model.chatting import Chatting
+from server.controller.schemas.chatting import ChattingDBSchema
+from server.controller.utils.db import get_db
 from settings import TEMPLATES_PATH
 
 router = APIRouter(prefix="/chat")

@@ -2,9 +2,9 @@ from fastapi import FastAPI
 from starlette.middleware.cors import CORSMiddleware
 from starlette.staticfiles import StaticFiles
 
-from server.controller.chat import router as chat_router
-from server.controller.auth import router as auth_router
-from server.utils.db import Base, engine
+from server.controller.routes.chat import router as chat_router
+from server.controller.routes.auth import router as auth_router
+from server.controller.utils.db import Base, engine
 from settings import STATIC_PATH
 
 Base.metadata.create_all(bind=engine)
